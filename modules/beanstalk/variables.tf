@@ -1,7 +1,3 @@
-############################################
-# General project variables
-############################################
-
 variable "project_name" {
   type        = string
   description = "Name of the project, used as prefix for resources"
@@ -12,10 +8,6 @@ variable "tags" {
   description = "Tags to apply to all resources"
   default     = {}
 }
-
-############################################
-# AWS & VPC related variables
-############################################
 
 variable "aws_region" {
   type        = string
@@ -43,10 +35,6 @@ variable "instance_security_group_ids" {
   default     = []
 }
 
-############################################
-# Elastic Beanstalk related variables
-############################################
-
 variable "eb_platform" {
   type        = string
   description = "Elastic Beanstalk platform (e.g., Node.js 20 running on 64bit Amazon Linux 2023)"
@@ -66,10 +54,6 @@ variable "instance_profile_name" {
   type        = string
   description = "IAM instance profile name for EC2 instances in EB environment"
 }
-
-############################################
-# S3 Bucket / Application Version variables
-############################################
 
 variable "app_bucket_name" {
   type        = string

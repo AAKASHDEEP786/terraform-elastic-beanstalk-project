@@ -1,6 +1,4 @@
-##################################
 # AWS WAFv2 Web ACL Configuration
-##################################
 
 resource "aws_wafv2_web_acl" "this" {
   name        = "${var.project_name}-web-acl"
@@ -75,9 +73,8 @@ resource "aws_wafv2_web_acl" "this" {
   }
 }
 
-##################################
+
 # Associate WAF with ALB (Beanstalk)
-##################################
 
 resource "aws_wafv2_web_acl_association" "assoc" {
   resource_arn = var.alb_arn

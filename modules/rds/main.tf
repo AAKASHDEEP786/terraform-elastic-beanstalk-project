@@ -1,6 +1,5 @@
-############################################
 # DB Subnet Group
-############################################
+
 resource "aws_db_subnet_group" "this" {
   name       = "${var.project_name}-db-subnet-group"
   subnet_ids = var.private_subnets
@@ -10,9 +9,8 @@ resource "aws_db_subnet_group" "this" {
   }
 }
 
-############################################
 # RDS Instance
-############################################
+
 resource "aws_db_instance" "this" {
   identifier             = "${var.project_name}-db"
   allocated_storage      = 20
@@ -31,7 +29,7 @@ resource "aws_db_instance" "this" {
   vpc_security_group_ids = var.security_group_ids
 
   deletion_protection    = false   # Recommended for dev environment
-  multi_az               = false   # Can be enabled later if needed
+  multi_az               = false   # Can be enabled later 
 
   tags = {
     Name = "${var.project_name}-db"

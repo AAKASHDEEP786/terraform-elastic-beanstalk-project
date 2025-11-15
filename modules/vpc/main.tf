@@ -7,9 +7,8 @@ terraform {
   }
 }
 
-############################################
 # VPC
-############################################
+
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -21,9 +20,8 @@ resource "aws_vpc" "main" {
   }
 }
 
-############################################
 # PUBLIC SUBNETS
-############################################
+
 resource "aws_subnet" "public" {
   count                   = length(var.public_subnet_cidrs)
   vpc_id                  = aws_vpc.main.id
@@ -37,9 +35,8 @@ resource "aws_subnet" "public" {
   }
 }
 
-############################################
 # PRIVATE SUBNETS
-############################################
+
 resource "aws_subnet" "private" {
   count             = length(var.private_subnet_cidrs)
   vpc_id            = aws_vpc.main.id
@@ -52,9 +49,8 @@ resource "aws_subnet" "private" {
   }
 }
 
-############################################
 # INTERNET GATEWAY
-############################################
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 
@@ -64,9 +60,8 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-############################################
 # PUBLIC ROUTE TABLE
-############################################
+
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
@@ -87,9 +82,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-############################################
 # SECURITY GROUPS
-############################################
 
 resource "aws_security_group" "eb_instance_sg" {
   name        = "${var.project_name}-eb-instance-sg"

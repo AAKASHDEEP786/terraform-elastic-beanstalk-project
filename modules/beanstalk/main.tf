@@ -184,7 +184,7 @@ resource "aws_elastic_beanstalk_environment" "this" {
 }
 
 ###########################################
-# Fetch the ALB created by Elastic Beanstalk safely
+# Fetching the ALB created by Elastic Beanstalk safely
 ###########################################
 data "aws_lbs" "beanstalk_albs" {
   depends_on = [aws_elastic_beanstalk_environment.this]

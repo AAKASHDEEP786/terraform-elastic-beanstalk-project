@@ -1,6 +1,4 @@
-############################################
 # Elastic Beanstalk Service Role
-############################################
 
 resource "aws_iam_role" "beanstalk_service_role" {
   name = "${var.project_name}-beanstalk-service-role"
@@ -34,9 +32,7 @@ resource "aws_iam_role_policy_attachment" "service_role_health" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
 }
 
-############################################
 # EC2 Instance Role for Beanstalk
-############################################
 
 resource "aws_iam_role" "beanstalk_instance_role" {
   name = "${var.project_name}-beanstalk-instance-role"
@@ -70,9 +66,7 @@ resource "aws_iam_role_policy_attachment" "instance_cloudwatch" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 }
 
-############################################
 # Instance Profile (EC2 uses IAM role)
-############################################
 
 resource "aws_iam_instance_profile" "beanstalk_instance_profile" {
   name = "${var.project_name}-beanstalk-instance-profile"
