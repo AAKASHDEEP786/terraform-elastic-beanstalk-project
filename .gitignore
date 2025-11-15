@@ -1,0 +1,56 @@
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform variable files (secrets)
+*.tfvars
+*.tfvars.json
+
+# Terraform lock file (optional)
+.terraform.lock.hcl
+
+# Module & plugin archives
+*.zip
+
+# === AWS Elastic Beanstalk ===
+# Elastic Beanstalk config files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Beanstalk log files
+*.log
+
+# === OS / EDITOR FILES ===
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Python (if using EB Python apps)
+__pycache__/
+*.pyc
+
+# Node.js (if using EB Node apps)
+node_modules/
+npm-debug.log
+
+# === MISC ===
+*.bak
+*.tmp
